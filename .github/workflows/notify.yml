@@ -1,0 +1,39 @@
+
+name: Deployment Notifications
+
+on:
+  workflow_run:
+    workflows: ["Deploy Portfolio to GitHub Pages"]
+    types:
+      - completed
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      DEPLOY_STATUS: ${{ github.event.workflow_run.conclusion }}
+
+    steps:
+      - name: Notify deployment success
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        run: echo "Portfolio deployment completed successfully!"
+
+      - name: Notify deployment failure
+        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+        run: echo "Portfolio deployment failed. Please check GitHub Actions."
+
+      - name: Send Slack notification
+        run: |
+          if [ -n "$SLACK_WEBHOOK_URL" ]; then
+            curl -X POST -H "Content-type: application/json" \
+            --data "{\"text\":\"Portfolio deployment status: ${DEPLOY_STATUS}\"}" \
+            "$SLACK_WEBHOOK_URL"
+          else
+            echo "Slack webhook not configured. Skipping Slack notification."
+          fi
