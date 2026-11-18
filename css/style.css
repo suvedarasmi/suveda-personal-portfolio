@@ -300,3 +300,14 @@ h2 { margin: 0; font-size: clamp(3rem, 6vw, 5.8rem); }
   .gallery-four { grid-column: 1 / -1; width: 100%; margin: 0; aspect-ratio: 16 / 9; }
   .family-signoff { text-align: left; }
 }
+/* Subtle hover effect for interest cards */
+.interest-card .image-placeholder {
+  transition: transform 350ms ease, box-shadow 350ms ease;
+}
+
+@media (hover: hover) {
+  .interest-card:hover .image-placeholder {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
+  }
+}
