@@ -1,0 +1,81 @@
+/* All design tokens live here. Change this file to change the site's visual theme. */
+:root,
+[data-theme="ivory"] {
+  color-scheme: light;
+  --color-bg: #f5f0e8;
+  --color-surface: #fbf8f3;
+  --color-surface-alt: #e9e0d3;
+  --color-ink: #192a3d;
+  --color-muted: #77766f;
+  --color-accent: #ad9065;
+  --color-line: #dcd3c6;
+  --color-family-bg: #e8dfd2;
+  --color-footer: #192a3d;
+  --color-footer-ink: #f5f0e8;
+  /* Small preview swatches for the theme picker (the same in every theme) */
+  --swatch-light-bg: #f5f0e8;
+  --swatch-light-accent: #ad9065;
+  --swatch-warm-bg: #faf1e4;
+  --swatch-warm-accent: #b4552d;
+  --swatch-dark-bg: #172536;
+  --swatch-dark-accent: #c6a779;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+  --space-xs: .5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6.5rem;
+  --content-width: 1200px;
+  --page-gutter: clamp(1.25rem, 6vw, 6rem);
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 22px;
+  --shadow-soft: 0 18px 50px rgba(25, 42, 61, .08);
+  --transition: 240ms ease;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #172536;
+  --color-surface: #203247;
+  --color-surface-alt: #2b3d50;
+  --color-ink: #f4efe7;
+  --color-muted: #b7b5ae;
+  --color-accent: #c6a779;
+  --color-line: #405064;
+  --color-family-bg: #26384a;
+  --color-footer: #101b29;
+  --color-footer-ink: #f4efe7;
+}
+
+[data-theme="sage"] {
+  color-scheme: light;
+  --color-bg: #f1f1e8;
+  --color-surface: #faf9f2;
+  --color-surface-alt: #e1e5d8;
+  --color-ink: #29372f;
+  --color-muted: #747a6e;
+  --color-accent: #89947a;
+  --color-line: #d5dacd;
+  --color-family-bg: #e3e7db;
+  --color-footer: #29372f;
+  --color-footer-ink: #f1f1e8;
+}
+
+/* Warm tones: cream, terracotta and deep brown */
+[data-theme="warm"] {
+  color-scheme: light;
+  --color-bg: #faf1e4;
+  --color-surface: #fffaf2;
+  --color-surface-alt: #f0dfc9;
+  --color-ink: #3a2418;
+  --color-muted: #7d6353;
+  --color-accent: #b4552d;
+  --color-line: #e8d3ba;
+  --color-family-bg: #f2dfc6;
+  --color-footer: #3a2418;
+  --color-footer-ink: #faf1e4;
+  --shadow-soft: 0 18px 50px rgba(58, 36, 24, .1);
+}
