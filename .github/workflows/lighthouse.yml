@@ -1,0 +1,31 @@
+
+name: Lighthouse Performance Audit
+
+on:
+  workflow_run:
+    workflows: ["Deploy Portfolio to GitHub Pages"]
+    types:
+      - completed
+  schedule:
+    - cron: '0 0 * * 1'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  lighthouse:
+    if: github.event_name == 'schedule' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse audit
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://suvedarasmi.github.io/suveda-personal-portfolio/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
